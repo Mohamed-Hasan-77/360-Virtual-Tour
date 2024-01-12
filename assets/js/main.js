@@ -2,9 +2,6 @@
 (function() {
   "use strict";
 
-  /**
-   * Easy selector helper function
-   */
   const select = (el, all = false) => {
     el = el.trim()
     if (all) {
@@ -14,9 +11,7 @@
     }
   }
 
-  /**
-   * Easy event listener function
-   */
+ 
   const on = (type, el, listener, all = false) => {
     let selectEl = select(el, all)
     if (selectEl) {
@@ -28,9 +23,7 @@
     }
   }
 
-  /**
-   * Easy on scroll event listener 
-   */
+ 
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
   }
@@ -121,7 +114,7 @@
   }, true)
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Scrool with ofset on links 
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
@@ -149,93 +142,8 @@
     }
   });
 
-  /**
-   * Preloader
-   */
-  let preloader = select('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove()
-    });
-  }
 
-  /**
-   * Initiate  glightbox 
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
-  }
-
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
-    }
-
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+  
 
   /**
    * Animation on scroll
@@ -264,3 +172,69 @@ DrawerToggle.onclick = () => {
 closeBtn.onclick = () => {
   navbarDrawer.style.right = "-100%";
 }
+
+
+
+
+var input = document.querySelector("#phone");
+var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+    window.addEventListener("load", function () {
+        
+        errorMsg = document.querySelector("#error-msg"),
+ validMsg = document.querySelector("#valid-msg");
+        var iti = window.intlTelInput(input, {
+            utilsScript:"https://cdn.jsdelivr.net/npm/intl-tel-input@16.0.2/build/js/utils.js"
+        });
+        window.intlTelInput(input, {
+            // allowDropdown: false,
+            // autoHideDialCode: false,
+            // autoPlaceholder: "off",
+            // dropdownContainer: document.body,
+            // excludeCountries: ["us"],
+            // formatOnDisplay: false,
+             geoIpLookup: function(callback) {
+         $.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+           var countryCode = (resp && resp.country) ? resp.country : "";
+           callback(countryCode);
+         });
+       },
+            // hiddenInput: "full_number",
+            initialCountry: "auto",
+           
+            // localizedCountries: { 'de': 'Deutschland' },
+            //nationalMode: false,
+            // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+            placeholderNumberType: "MOBILE",
+            // preferredCountries: ['cn', 'jp'],
+            // separateDialCode: true,
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@16.0.2/build/js/utils.js",
+        });
+        $(validMsg).addClass("hide");
+        input.addEventListener('blur', function () {
+            reset();
+            if (input.value.trim()) {
+                if (iti.isValidNumber()) {
+                    validMsg.classList.remove("hide");
+                } else {
+                    input.classList.add("error");
+                    var errorCode = iti.getValidationError();
+                    errorMsg.innerHTML = errorMap[errorCode];
+                    errorMsg.classList.remove("hide");
+                }
+            }
+        });
+        
+        input.addEventListener('change', reset);
+        input.addEventListener('keyup', reset);
+    });
+
+    
+    var reset = function () {
+        input.classList.remove("error");
+        errorMsg.innerHTML = "";
+        errorMsg.classList.add("hide");
+        validMsg.classList.add("hide");
+    };
+ $(document).ready(function () {
+        $("#phone").val("+917773859");
+    });
