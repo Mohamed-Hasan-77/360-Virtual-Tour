@@ -1219,17 +1219,17 @@ closeBtn.onclick = () => {
 
 
 
-// ِالفلتر العربي --------------------------------------------------------
+// // ِالفلتر العربي --------------------------------------------------------
 
 
 
 
- // Client Filter and data ------------------------
+//  // Client Filter and data ------------------------
 
 
 
 
-    let clientWrapper = document.querySelector(".clientWrapper");
+    let arClientWrapper = document.querySelector(".arClientWrapper");
 
     let arClientsDataAll = [ 
       {
@@ -1986,7 +1986,7 @@ closeBtn.onclick = () => {
 
     }
 
-      clientWrapper.innerHTML = arBox
+      arClientWrapper.innerHTML = arBox
 
 
   function filterBy(filterOption) {
@@ -2039,7 +2039,7 @@ closeBtn.onclick = () => {
 
       }
 
-        clientWrapper.innerHTML = arBox
+        arClientWrapper.innerHTML = arBox
         break;
     case "Retreats":
       
@@ -2071,7 +2071,7 @@ closeBtn.onclick = () => {
 
 
 
-        clientWrapper.innerHTML = arBox
+        arClientWrapper.innerHTML = arBox
         break;
     case "Restaurants":
       
@@ -2101,7 +2101,7 @@ closeBtn.onclick = () => {
 
       }
 
-        clientWrapper.innerHTML = arBox
+        arClientWrapper.innerHTML = arBox
         break;
     case "work":
       
@@ -2131,7 +2131,7 @@ closeBtn.onclick = () => {
 
       }
 
-        clientWrapper.innerHTML = arBox
+        arClientWrapper.innerHTML = arBox
         break;
     case "Saudi":
       
@@ -2161,7 +2161,7 @@ closeBtn.onclick = () => {
 
       }
 
-        clientWrapper.innerHTML = arBox
+        arClientWrapper.innerHTML = arBox
         break;
     case "Egypt":
       
@@ -2191,7 +2191,7 @@ closeBtn.onclick = () => {
 
       }
 
-        clientWrapper.innerHTML = arBox
+        arClientWrapper.innerHTML = arBox
         break;
     case "UAE":
       
@@ -2221,7 +2221,7 @@ closeBtn.onclick = () => {
 
       }
 
-        clientWrapper.innerHTML = arBox
+        arClientWrapper.innerHTML = arBox
         break;
     case "Kuwait":
           
@@ -2251,9 +2251,9 @@ closeBtn.onclick = () => {
     
           }
     
-            clientWrapper.innerHTML = arBox
+            arClientWrapper.innerHTML = arBox
         break;
     default:
-        clientWrapper.innerHTML = "Invalid Data";
+        arClientWrapper.innerHTML = "Invalid Data";
     }
   }
