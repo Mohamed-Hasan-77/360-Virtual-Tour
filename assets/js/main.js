@@ -166,7 +166,7 @@ let navbarDrawer = document.querySelector("#navbarDrawer")
 let DrawerToggle = document.querySelector(".DrawerToggle")
 
 DrawerToggle.onclick = () => {
-  navbarDrawer.style.right = "-30%";
+  navbarDrawer.style.right = "0";
 }
 
 closeBtn.onclick = () => {
@@ -176,65 +176,1034 @@ closeBtn.onclick = () => {
 
 
 
-var input = document.querySelector("#phone");
-var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
-    window.addEventListener("load", function () {
-        
-        errorMsg = document.querySelector("#error-msg"),
- validMsg = document.querySelector("#valid-msg");
-        var iti = window.intlTelInput(input, {
-            utilsScript:"https://cdn.jsdelivr.net/npm/intl-tel-input@16.0.2/build/js/utils.js"
-        });
-        window.intlTelInput(input, {
-            // allowDropdown: false,
-            // autoHideDialCode: false,
-            // autoPlaceholder: "off",
-            // dropdownContainer: document.body,
-            // excludeCountries: ["us"],
-            // formatOnDisplay: false,
-             geoIpLookup: function(callback) {
-         $.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-           var countryCode = (resp && resp.country) ? resp.country : "";
-           callback(countryCode);
-         });
-       },
-            // hiddenInput: "full_number",
-            initialCountry: "auto",
-           
-            // localizedCountries: { 'de': 'Deutschland' },
-            //nationalMode: false,
-            // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-            placeholderNumberType: "MOBILE",
-            // preferredCountries: ['cn', 'jp'],
-            // separateDialCode: true,
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@16.0.2/build/js/utils.js",
-        });
-        $(validMsg).addClass("hide");
-        input.addEventListener('blur', function () {
-            reset();
-            if (input.value.trim()) {
-                if (iti.isValidNumber()) {
-                    validMsg.classList.remove("hide");
-                } else {
-                    input.classList.add("error");
-                    var errorCode = iti.getValidationError();
-                    errorMsg.innerHTML = errorMap[errorCode];
-                    errorMsg.classList.remove("hide");
-                }
-            }
-        });
-        
-        input.addEventListener('change', reset);
-        input.addEventListener('keyup', reset);
-    });
 
+
+
+
+    // Client Filter and data ------------------------
+
+
+
+
+    let clientWrapper = document.querySelector(".clientWrapper");
+
+    let clientsDataAll = [ 
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+      },
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+      
+    ] 
+
+    let clientsDataHotels = [ 
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+      },
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+      
+    ] 
+
+
+
+    let clientsDataRetreats = [ 
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+      },
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+
+      
+    ] 
+
+
+
+
+    let clientsDataRestaurants = [ 
+
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+      },
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+      
+    ] 
+
+
+
+    let clientsDataWork = [ 
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+      },
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+
+      
+    ] 
+
+
+
+    let clientsDataSaudi = [ 
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+      },
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+      
+    ] 
+
+
+
+    let clientsDataEgypt = [ 
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+    ] 
+
+
+
+    let clientsDataUAE = [ 
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+      },
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+      
+    ] 
+
+
+
+    let clientsDataKuwait = [ 
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+      },
+      {
+        name: " Shark Company ",
+        specialization: " Real Estate  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client2.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Tiger Tower ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client3.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Pyramids Tower  ",
+        specialization: " skyscraper  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client4.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Leon Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client5.jpg",
+        url: "#"
+
+      },
+      {
+        name: " Lava Hotel ",
+        specialization: " Hotel  ",
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tempora illo architecto doloremque soluta.`,
+        img :  "./assets/img/images/Clients/client1.jpg",
+        url: "#"
+
+      },
+      
+    ] 
+
+
+
+
+  function filterBy(filterOption) {
+
+    let filterItemsActive = document.querySelectorAll(".filterItems li");
+
+    filterItemsActive.forEach(function (item) {
+      item.classList.remove('active');
+  });
+
+
+  let filterItemsTwo = document.querySelectorAll(".filterItemsTwo li");
+
+  filterItemsTwo.forEach(function (item) {
+    item.classList.remove('active');
+});
+
+  document.getElementById(filterOption).classList.add('active')
+
+    let box = ""
+    switch (filterOption) {
+      case "All":  
+
+      for(let i=0; i<=clientsDataAll.length - 1; i++) {
+        box = box + `<div class="col-xl-4   col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+        data-aos-delay="100">
+        <div class="clientCard shadow">
+
+        <img src="${clientsDataAll[i]?.img}" alt="client1">
+
+            <div class="card-front">
+                <p class="title"> ${clientsDataAll[i]?.name} </p>
+                <p class="subtitle"> ${clientsDataAll[i]?.specialization} </p>
+            </div>
+            <div class="card-back">
+                <h3> ${clientsDataAll[i]?.name} </h3>
+                <p>  ${clientsDataAll[i]?.specialization} </p>
+                <p>  ${clientsDataAll[i]?.description} </p>
+
+                <div class="links d-flex justify-content-between align-items-center">
+                    <span class="goToProject"> <a href=" ${clientsDataAll[i]?.url}"> Go to Project <i class="fa-solid fa-link"></i>
+                        </a> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+
+      }
+
+        clientWrapper.innerHTML = box
+        break;
+    case "Hotels":
+
+      for(let i=0; i<=clientsDataHotels.length - 1; i++) {
+        box = box + `<div class="col-xl-4   col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+        data-aos-delay="100">
+        <div class="clientCard shadow">
+
+        <img src="${clientsDataHotels[i]?.img}" alt="client1">
+
+            <div class="card-front">
+                <p class="title"> ${clientsDataHotels[i]?.name} </p>
+                <p class="subtitle"> ${clientsDataHotels[i]?.specialization} </p>
+            </div>
+            <div class="card-back">
+                <h3> ${clientsDataHotels[i]?.name} </h3>
+                <p>  ${clientsDataHotels[i]?.specialization} </p>
+                <p>  ${clientsDataHotels[i]?.description} </p>
+
+                <div class="links d-flex justify-content-between align-items-center">
+                    <span class="goToProject"> <a href=" ${clientsDataHotels[i]?.url}"> Go to Project <i class="fa-solid fa-link"></i>
+                        </a> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+
+      }
+
+        clientWrapper.innerHTML = box
+        break;
+    case "Retreats":
+      
+      for(let i=0; i<=clientsDataRetreats.length - 1; i++) {
+        box = box + `<div class="col-xl-4   col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+        data-aos-delay="100">
+        <div class="clientCard shadow">
+        <img src="${clientsDataRetreats[i]?.img}" alt="client1">
+            <div class="card-front">
+                <p class="title"> ${clientsDataRetreats[i]?.name} </p>
+                <p class="subtitle"> ${clientsDataRetreats[i]?.specialization} </p>
+            </div>
+            <div class="card-back">
+                <h3> ${clientsDataRetreats[i]?.name} </h3>
+                <p>  ${clientsDataRetreats[i]?.specialization} </p>
+                <p>  ${clientsDataRetreats[i]?.description} </p>
+
+                <div class="links d-flex justify-content-between align-items-center">
+                    <span class="goToProject"> <a href=" ${clientsDataRetreats[i]?.url}"> Go to Project <i class="fa-solid fa-link"></i>
+                        </a> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+
+      }
+
+
+
+        clientWrapper.innerHTML = box
+        break;
+    case "Restaurants":
+      
+      for(let i=0; i<=clientsDataRestaurants.length - 1; i++) {
+        box = box + `<div class="col-xl-4   col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+        data-aos-delay="100">
+        <div class="clientCard shadow">
+        <img src="${clientsDataRestaurants[i]?.img}" alt="client1">
+            <div class="card-front">
+                <p class="title"> ${clientsDataRestaurants[i]?.name} </p>
+                <p class="subtitle"> ${clientsDataRestaurants[i]?.specialization} </p>
+            </div>
+            <div class="card-back">
+                <h3> ${clientsDataRestaurants[i]?.name} </h3>
+                <p>  ${clientsDataRestaurants[i]?.specialization} </p>
+                <p>  ${clientsDataRestaurants[i]?.description} </p>
+
+                <div class="links d-flex justify-content-between align-items-center">
+                    <span class="goToProject"> <a href=" ${clientsDataRestaurants[i]?.url}"> Go to Project <i class="fa-solid fa-link"></i>
+                        </a> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+
+      }
+
+        clientWrapper.innerHTML = box
+        break;
+    case "work":
+      
+      for(let i=0; i<=clientsDataWork.length - 1; i++) {
+        box = box + `<div class="col-xl-4   col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+        data-aos-delay="100">
+        <div class="clientCard shadow">
+        <img src="${clientsDataWork[i]?.img}" alt="client1">
+            <div class="card-front">
+                <p class="title"> ${clientsDataWork[i]?.name} </p>
+                <p class="subtitle"> ${clientsDataWork[i]?.specialization} </p>
+            </div>
+            <div class="card-back">
+                <h3> ${clientsDataWork[i]?.name} </h3>
+                <p>  ${clientsDataWork[i]?.specialization} </p>
+                <p>  ${clientsDataWork[i]?.description} </p>
+
+                <div class="links d-flex justify-content-between align-items-center">
+                    <span class="goToProject"> <a href=" ${clientsDataWork[i]?.url}"> Go to Project <i class="fa-solid fa-link"></i>
+                        </a> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+
+      }
+
+        clientWrapper.innerHTML = box
+        break;
+    case "Saudi":
+      
+      for(let i=0; i<=clientsDataSaudi.length - 1; i++) {
+        box = box + `<div class="col-xl-4   col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+        data-aos-delay="100">
+        <div class="clientCard shadow">
+        <img src="${clientsDataSaudi[i]?.img}" alt="client1">
+            <div class="card-front">
+                <p class="title"> ${clientsDataSaudi[i]?.name} </p>
+                <p class="subtitle"> ${clientsDataSaudi[i]?.specialization} </p>
+            </div>
+            <div class="card-back">
+                <h3> ${clientsDataSaudi[i]?.name} </h3>
+                <p>  ${clientsDataSaudi[i]?.specialization} </p>
+                <p>  ${clientsDataSaudi[i]?.description} </p>
+
+                <div class="links d-flex justify-content-between align-items-center">
+                    <span class="goToProject"> <a href=" ${clientsDataSaudi[i]?.url}"> Go to Project <i class="fa-solid fa-link"></i>
+                        </a> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+
+      }
+
+        clientWrapper.innerHTML = box
+        break;
+    case "Egypt":
+      
+      for(let i=0; i<=clientsDataEgypt.length - 1; i++) {
+        box = box + `<div class="col-xl-4   col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+        data-aos-delay="100">
+        <div class="clientCard shadow">
+        <img src="${clientsDataEgypt[i]?.img}" alt="client1">
+            <div class="card-front">
+                <p class="title"> ${clientsDataEgypt[i]?.name} </p>
+                <p class="subtitle"> ${clientsDataEgypt[i]?.specialization} </p>
+            </div>
+            <div class="card-back">
+                <h3> ${clientsDataEgypt[i]?.name} </h3>
+                <p>  ${clientsDataEgypt[i]?.specialization} </p>
+                <p>  ${clientsDataEgypt[i]?.description} </p>
+
+                <div class="links d-flex justify-content-between align-items-center">
+                    <span class="goToProject"> <a href=" ${clientsDataEgypt[i]?.url}"> Go to Project <i class="fa-solid fa-link"></i>
+                        </a> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+
+      }
+
+        clientWrapper.innerHTML = box
+        break;
+    case "UAE":
+      
+      for(let i=0; i<=clientsDataUAE.length - 1; i++) {
+        box = box + `<div class="col-xl-4   col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+        data-aos-delay="100">
+        <div class="clientCard shadow">
+        <img src="${clientsDataUAE[i]?.img}" alt="client1">
+            <div class="card-front">
+                <p class="title"> ${clientsDataUAE[i]?.name} </p>
+                <p class="subtitle"> ${clientsDataUAE[i]?.specialization} </p>
+            </div>
+            <div class="card-back">
+                <h3> ${clientsDataUAE[i]?.name} </h3>
+                <p>  ${clientsDataUAE[i]?.specialization} </p>
+                <p>  ${clientsDataUAE[i]?.description} </p>
+
+                <div class="links d-flex justify-content-between align-items-center">
+                    <span class="goToProject"> <a href=" ${clientsDataUAE[i]?.url}"> Go to Project <i class="fa-solid fa-link"></i>
+                        </a> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+
+      }
+
+        clientWrapper.innerHTML = box
+        break;
+    case "Kuwait":
+          
+          for(let i=0; i<=clientsDataKuwait.length - 1; i++) {
+            box = box + `<div class="col-xl-4   col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+            data-aos-delay="100">
+            <div class="clientCard shadow">
+            <img src="${clientsDataKuwait[i]?.img}" alt="client1">
+                <div class="card-front">
+                    <p class="title"> ${clientsDataKuwait[i]?.name} </p>
+                    <p class="subtitle"> ${clientsDataKuwait[i]?.specialization} </p>
+                </div>
+                <div class="card-back">
+                    <h3> ${clientsDataKuwait[i]?.name} </h3>
+                    <p>  ${clientsDataKuwait[i]?.specialization} </p>
+                    <p>  ${clientsDataKuwait[i]?.description} </p>
     
-    var reset = function () {
-        input.classList.remove("error");
-        errorMsg.innerHTML = "";
-        errorMsg.classList.add("hide");
-        validMsg.classList.add("hide");
-    };
- $(document).ready(function () {
-        $("#phone").val("+917773859");
-    });
+                    <div class="links d-flex justify-content-between align-items-center">
+                        <span class="goToProject"> <a href=" ${clientsDataKuwait[i]?.url}"> Go to Project <i class="fa-solid fa-link"></i>
+                            </a> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `
+    
+          }
+    
+            clientWrapper.innerHTML = box
+        break;
+    default:
+        clientWrapper.innerHTML = "Invalid Data";
+    }
+  }
+
+
+
+
+
+
