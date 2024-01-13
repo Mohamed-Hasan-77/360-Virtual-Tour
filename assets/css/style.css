@@ -105,7 +105,7 @@ h6 {
 
 #header.header-scrolled,
 #header.header-inner-pages {
-  background: black;
+  background: #0E0E0E;
 }
 
 #header .logo {
@@ -739,9 +739,6 @@ section {
   background-color: white;
 }
 
-.why-us .content {
-  padding: 60px 0px 10px 0px;
-}
 
 .why-us .content h3 {
   font-weight: 400;
@@ -760,34 +757,33 @@ section {
   color: #848484;
 }
 
+
+
 .why-us .img {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+  max-height: 550px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-.why-us .theList {
-  padding-bottom: 300px;
+.why-us .img img {
+  border-radius: 5px;
+
 }
 
-@media(max-width: 740px) {
-  .why-us .theList {
-    padding-bottom: 450px;
-  }
-}
+
 
 .why-us .accordion-list {
   padding: 0px 0px 50px 0px;
-  position: relative;
 
 }
 
 .why-us .accordion-list ul {
-  position: absolute;
   padding: 0;
   list-style: none;
   width: 100%;
-  z-index: 88;
 }
 
 .why-us .accordion-list li+li {
@@ -951,6 +947,7 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: 35px 20px;
+  max-height: 300px;
   border-radius: 10px;
   backdrop-filter: blur(17px);
   background-color: rgb(203 203 203 / 31%);
@@ -1251,7 +1248,6 @@ Clients
 --------------------------------------------------------------*/
 
 
-
 .clientCard {
   color: #1b1b1b;
   position: relative;
@@ -1266,10 +1262,11 @@ Clients
   background-size: cover;
   transition: background-color 1s ease-in-out;
   overflow: hidden;
+  cursor: pointer;
 }
 
 
-.clientCard img {
+.clientCard .cardBack {
   position: absolute;
   min-width: 100%;
   min-height: 100%;
@@ -1321,9 +1318,13 @@ Clients
 }
 
 
+
 .clientCard .card-back {
   padding: 8px;
+  position: relative;
 }
+
+
 
 .clientCard .card-back h3 {
   font-weight: 600;
@@ -1391,7 +1392,17 @@ Clients
 }
 
 
-
+.clientCard .card-back .img360 {
+  max-width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: brightness(1);
+  backdrop-filter: blur(0);
+  opacity: 0.4;
+  width: 200px;
+}
 
 
 
@@ -1591,19 +1602,24 @@ Clients
 }
 
 .contact .info h4 {
-  padding: 0 0 0 60px;
-  font-size: 22px;
+  padding: 0 0 0 55px;
+  font-size: 20px;
   font-weight: 600;
   margin-bottom: 5px;
   color: var(--secSiteColor);
 }
 
-.contact .info p {
-  padding: 0 0 10px 60px;
-  margin-bottom: 20px;
+.contact .info span {
   font-size: 14px;
-  color: #6182ba;
 }
+
+
+.contact .info .address {
+  margin-top: 40px;
+  padding: 0;
+}
+
+
 
 .contact .info .email p {
   padding-top: 5px;
@@ -2078,6 +2094,15 @@ Clients
 
 
 /* all Clients Page */
+
+
+.clientsingle {
+  padding-top: 200px;
+}
+
+.headerClient {
+  background-color: #0E0E0E;
+}
 
 .clients .filter .filterHeading {
   font-weight: 600;

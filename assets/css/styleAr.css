@@ -106,7 +106,7 @@ h6 {
 
 #header.header-scrolled,
 #header.header-inner-pages {
-  background: black;
+  background: #0E0E0E;
 }
 
 #header .logo {
@@ -766,30 +766,27 @@ section {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+  max-height: 550px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-.why-us .theList {
-  padding-bottom: 300px;
+.why-us .img img {
+  border-radius: 5px;
+
 }
 
-@media(max-width: 740px) {
-  .why-us .theList {
-    padding-bottom: 450px;
-  }
-}
+
 
 .why-us .accordion-list {
   padding: 0px 0px 50px 0px;
-  position: relative;
 
 }
 
 .why-us .accordion-list ul {
-  position: absolute;
   padding: 0;
   list-style: none;
   width: 100%;
-  z-index: 88;
 }
 
 .why-us .accordion-list li+li {
@@ -883,7 +880,6 @@ section {
 }
 
 
-
 /*--------------------------------------------------------------
 # Beneficiaries
 --------------------------------------------------------------*/
@@ -953,12 +949,19 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: 35px 20px;
+  max-height: 300px;
   border-radius: 10px;
   backdrop-filter: blur(17px);
   background-color: rgb(203 203 203 / 31%);
   border: 1px solid rgba(255, 255, 255, 0.089);
   cursor: pointer;
 }
+
+
+
+
+
+
 
 
 #beneficiaries .cardContainer .title {
@@ -1002,95 +1005,18 @@ section {
 }
 
 
-/* #beneficiaries .card-container {
-  position: relative;
-  border-radius: 10px;
+
+@media(max-width: 768px) {
+
+  #beneficiaries .BenfCard {
+    max-width: 300px;
+  }
+
+  .benfCardCol {
+    display: flex;
+    justify-content: center;
+  }
 }
-
-#beneficiaries .card-container::before {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  inset: 0;
-  transform: translate3d(0, 0, 0) scale(0.95);
-  filter: blur(20px);
-}
-
-#beneficiaries .cardContent {
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  overflow: hidden;
-}
-
-#beneficiaries .cardContent .img-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: scale 0.6s, rotate 0.6s, filter 1s;
-}
-
-
-#beneficiaries .cardContent .content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 10px;
-  color: #e8e8e8;
-  padding: 20px;
-  line-height: 1.5;
-  border-radius: 5px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(50px);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-}
-
-#beneficiaries .cardContent .content .heading {
-  font-size: 32px;
-  font-weight: 700;
-}
-
-#beneficiaries .cardContent:hover .content {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#beneficiaries .cardContent:hover .img-content {
-  scale: 2.5;
-  rotate: 30deg;
-  filter: blur(7px) brightness(0.8);
-}
-
-
-.swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  height: 300px;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-} */
-
-
 
 
 
@@ -1107,6 +1033,7 @@ Services
   border-radius: 30px;
   box-shadow: 15px 15px 30px #bebebe,
     -15px -15px 30px #ffffff;
+  max-width: 350px;
 }
 
 .services .icon-box .icon {
@@ -1143,6 +1070,30 @@ Services
 .services .icon-box:hover h4 {
   color: var(--mainSiteColor);
 }
+
+
+
+@media(max-width: 768px) {
+
+  .services .icon-box {
+    max-width: 350px;
+  }
+
+  .services .servCardCol {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+@media(max-width: 1024px) {
+
+  .services .servCardCol {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 
 
 
@@ -1268,10 +1219,11 @@ Clients
   background-size: cover;
   transition: background-color 1s ease-in-out;
   overflow: hidden;
+  cursor: pointer;
 }
 
 
-.clientCard img {
+.clientCard .cardBack {
   position: absolute;
   min-width: 100%;
   min-height: 100%;
@@ -1323,9 +1275,13 @@ Clients
 }
 
 
+
 .clientCard .card-back {
   padding: 8px;
+  position: relative;
 }
+
+
 
 .clientCard .card-back h3 {
   font-weight: 600;
@@ -1390,6 +1346,19 @@ Clients
   filter: brightness(0.7);
   backdrop-filter: blur(5px);
 
+}
+
+
+.clientCard .card-back .img360 {
+  max-width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: brightness(1);
+  backdrop-filter: blur(0);
+  opacity: 0.4;
+  width: 200px;
 }
 
 
@@ -1546,6 +1515,11 @@ Clients
 
 .pricing .featured {
   border-top-color: var(--mainSiteColor);
+  border-top-color: var(--mainSiteColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 
@@ -1594,19 +1568,22 @@ Clients
 }
 
 .contact .info h4 {
-  padding: 0 0 0 60px;
-  font-size: 22px;
+  padding: 0 0 0 55px;
+  font-size: 20px;
   font-weight: 600;
-  margin-bottom: 5px;
   color: var(--secSiteColor);
 }
 
-.contact .info p {
-  padding: 0 0 10px 60px;
-  margin-bottom: 20px;
+.contact .info span {
   font-size: 14px;
-  color: #6182ba;
 }
+
+
+.contact .info .address {
+  margin-top: 40px;
+  padding: 0;
+}
+
 
 .contact .info .email p {
   padding-top: 5px;
@@ -2082,12 +2059,23 @@ Clients
 
 /* all Clients Page */
 
+
+
+#header {
+  background-color: #0E0E0E;
+}
+
+
+
+.clientsAr {
+  padding-top: 200px;
+}
+
 .clients .filter .filterHeading {
   font-weight: 600;
   text-align: center;
   margin-top: 50px;
 }
-
 
 
 .clients .filter ul {

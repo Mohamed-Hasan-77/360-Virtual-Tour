@@ -34,7 +34,7 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top ">
+    <header id="header" class="fixed-top headerClient ">
         <div class="container d-flex align-items-center">
 
             <h1 class="logo me-auto"><a href="./index.html"> <i class="fa-solid fa-house"></i> Logo</a></h1>
@@ -42,7 +42,7 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero"> Home</a></li>
+                    <li><a class="nav-link scrollto active" href="./index.html"> Home</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -127,52 +127,17 @@
         </div>
     </header>
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="hero heroClintes d-flex align-items-center">
 
-        <div class="layoutVideo">
-            <video autoplay muted loop>
-                <source src="./assets/img/images/360 interior.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="container">
-            <div class="">
-                <div class=" d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1  "
-                    data-aos="fade-up" data-aos-delay="200">
-                    <h1> View <span class="headerSpan">360</span> Virtual Tours </h1>
-                    <h3> We provide to you an amazing new user experience for your customers. </h3>
-                    <button class="btn btnProject "> <a class="text-white" href="#clients"> Our Projects </a>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            style="fill: rgb(255, 255, 255);transform: ;msFilter:;">
-                            <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="scroller">
-                    <a href="#clients" class="scroll-down">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </a>
-                </div>
-            </div>
-
-
-        </div>
-
-
-
-    </section><!-- End Hero -->
 
 
     <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients section-bg">
+    <section id="clients" class="clients clientsingle section-bg">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Our Clients</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                <h2> Explore Our Projects </h2>
+                <p> Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
+                    sint
                     consectetur velit.</p>
             </div>
 
@@ -184,7 +149,7 @@
                 <ul class="filterItems">
                     <span class="filterTitle fw-bold"> Activity : </span>
 
-                    <li onclick="filterBy('All')" id="All"> All Clients </li>
+                    <li onclick="filterBy('All')" id="All" class="active"> All Clients </li>
                     <li onclick="filterBy('Hotels')" id="Hotels"> Hotels </li>
                     <li onclick="filterBy('Retreats')" id="Retreats"> Retreats </li>
                     <li onclick="filterBy('Restaurants')" id="Restaurants"> Restaurants</li>
@@ -207,7 +172,7 @@
             <div class="row  clientWrapper">
 
 
-                <div class="col-xl-4  col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <!-- <div class="col-xl-4  col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="clientCard shadow">
                         <img src="./assets/img/images/Clients/client1.jpg" alt="client1">
 
@@ -358,7 +323,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
 
