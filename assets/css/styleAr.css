@@ -109,7 +109,7 @@ a:hover {
 }
 
 #header .logo {
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -123,7 +123,7 @@ a:hover {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 50px;
 }
 
 /*--------------------------------------------------------------
@@ -708,6 +708,10 @@ section {
   cursor: grab;
 }
 
+.tour360 {
+  padding: 20px;
+}
+
 
 .tour {
   position: relative;
@@ -723,11 +727,31 @@ section {
 }
 
 .tour .info img {
-  max-width: 150px;
+  max-width: 140px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
+.tour360 iframe {
+  padding: 15px;
+  border: 5px solid #2d2d2d;
+  width: 100%;
+  height: 600px;
+}
 
+@media (max-width: 992px) {
+  .tour360 {
+    padding: 15px;
+    margin-bottom: 15px;
+
+  }
+
+  .tour360 iframe {
+    width: 100%;
+    height: 550px;
+  }
+
+}
 
 /*--------------------------------------------------------------
 # Why Us
@@ -945,20 +969,14 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 35px 20px;
+  padding: 15px 12px;
   max-height: 300px;
   border-radius: 10px;
   backdrop-filter: blur(17px);
   background-color: rgb(203 203 203 / 31%);
-  border: 1px solid rgba(255, 255, 255, 0.089);
+  /* border: 1px solid rgba(255, 255, 255, 0.089); */
   cursor: pointer;
 }
-
-
-
-
-
-
 
 
 #beneficiaries .cardContainer .title {
@@ -993,6 +1011,19 @@ section {
   transition: all 1s;
 }
 
+
+@media (max-width: 768px) {
+
+  #beneficiaries .cardContainer::before {
+    left: 65px;
+  }
+
+  #beneficiaries .cardContainer .title {
+    font-size: 1rem;
+  }
+}
+
+
 #beneficiaries .cardContainer:hover {
   transform: scale(0.98);
 }
@@ -1012,6 +1043,8 @@ section {
   .benfCardCol {
     display: flex;
     justify-content: center;
+    padding-left: 7px;
+    padding-right: 7px;
   }
 }
 
@@ -1024,7 +1057,7 @@ Services
 
 .services .icon-box {
   box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
-  padding: 100px 30px;
+  padding: 70px 30px;
   transition: all ease-in-out 0.4s;
   background: #fff;
   border-radius: 30px;
@@ -1070,17 +1103,29 @@ Services
 
 
 
-@media(max-width: 768px) {
 
+
+@media(max-width: 768px) {
   .services .icon-box {
-    max-width: 350px;
+    padding: 40px 15px;
+    box-shadow: 8px 6px 19px #bebebe, -17px -15px 12px #ffffff;
   }
 
   .services .servCardCol {
-    display: flex;
-    justify-content: center;
+    padding: 0 7px;
+  }
+
+  .services .icon-box h4 {
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+
+  .services .icon-box p {
+    font-size: 13px;
   }
 }
+
+
 
 
 @media(max-width: 1024px) {
@@ -1090,6 +1135,7 @@ Services
     justify-content: center;
   }
 }
+
 
 
 
@@ -1460,7 +1506,7 @@ Clients
   padding: 20px 0;
   list-style: none;
   color: #999;
-  text-align: left;
+  text-align: right;
   line-height: 20px;
 }
 

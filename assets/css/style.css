@@ -109,7 +109,7 @@ h6 {
 }
 
 #header .logo {
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -123,7 +123,7 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 50px;
 }
 
 /*--------------------------------------------------------------
@@ -717,14 +717,39 @@ section {
   color: white;
 }
 
+.tour360 {
+  padding: 20px;
+}
 
 .tour h2 {
   color: white;
 }
 
 .tour .info img {
-  max-width: 150px;
+  max-width: 140px;
   margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.tour360 iframe {
+  padding: 15px;
+  border: 5px solid #2d2d2d;
+  width: 100%;
+  height: 600px;
+}
+
+@media (max-width: 992px) {
+  .tour360 {
+    padding: 15px;
+    margin-bottom: 15px;
+
+  }
+
+  .tour360 iframe {
+    width: 100%;
+    height: 550px;
+  }
+
 }
 
 
@@ -940,18 +965,19 @@ section {
 
 }
 
+
+
 #beneficiaries .BenfCard {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 35px 20px;
+  padding: 15px 12px;
   max-height: 300px;
   border-radius: 10px;
   backdrop-filter: blur(17px);
   background-color: rgb(203 203 203 / 31%);
-  border: 1px solid rgba(255, 255, 255, 0.089);
   cursor: pointer;
 }
 
@@ -988,6 +1014,24 @@ section {
   transition: all 1s;
 }
 
+@media (max-width: 768px) {
+
+  #beneficiaries .cardContainer::before {
+    left: 50px;
+  }
+
+  #beneficiaries .cardContainer .title {
+    font-size: 1rem;
+  }
+
+  #beneficiaries .benfCardCol {
+    display: flex;
+    justify-content: center;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}
+
 #beneficiaries .cardContainer:hover {
   transform: scale(0.98);
 }
@@ -996,94 +1040,6 @@ section {
   transform: translate(-50px, 50px);
 }
 
-
-/* #beneficiaries .card-container {
-  position: relative;
-  border-radius: 10px;
-}
-
-#beneficiaries .card-container::before {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  inset: 0;
-  transform: translate3d(0, 0, 0) scale(0.95);
-  filter: blur(20px);
-}
-
-#beneficiaries .cardContent {
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  overflow: hidden;
-}
-
-#beneficiaries .cardContent .img-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: scale 0.6s, rotate 0.6s, filter 1s;
-}
-
-
-#beneficiaries .cardContent .content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 10px;
-  color: #e8e8e8;
-  padding: 20px;
-  line-height: 1.5;
-  border-radius: 5px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(50px);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-}
-
-#beneficiaries .cardContent .content .heading {
-  font-size: 32px;
-  font-weight: 700;
-}
-
-#beneficiaries .cardContent:hover .content {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#beneficiaries .cardContent:hover .img-content {
-  scale: 2.5;
-  rotate: 30deg;
-  filter: blur(7px) brightness(0.8);
-}
-
-
-.swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  height: 300px;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-} */
 
 
 
@@ -1094,14 +1050,16 @@ Services
 --------------------------------------------------------------*/
 
 
+
 .services .icon-box {
   box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
-  padding: 100px 30px;
+  padding: 70px 30px;
   transition: all ease-in-out 0.4s;
   background: #fff;
   border-radius: 30px;
   box-shadow: 15px 15px 30px #bebebe,
     -15px -15px 30px #ffffff;
+  max-width: 350px;
 }
 
 .services .icon-box .icon {
@@ -1139,6 +1097,29 @@ Services
   color: var(--mainSiteColor);
 }
 
+
+
+@media(max-width: 768px) {
+  .services .icon-box {
+    padding: 40px 15px;
+    box-shadow: 14px 14px 19px #bebebe, 0px -15px 12px #f3f5fa;
+  }
+
+  .services .servCol {
+    padding: 0 7px;
+  }
+
+  .services .icon-box h4 {
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+
+  .services .icon-box p {
+    font-size: 13px;
+    color: #a1a1a1;
+
+  }
+}
 
 
 /*--------------------------------------------------------------
